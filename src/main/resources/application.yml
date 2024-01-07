@@ -26,6 +26,12 @@ spring:
             - Path=/users/**
           filters:
             - name: CustomFilter
+        - id: catalog-service
+          uri: lb://CATALOG-SERVICE
+          predicates:
+            - Path=/catalogs/**
+          filters:
+            - name: CustomFilter
 #            - name: LoggingFilter
 #              args:
 #                baseMessage: Hi, there.
