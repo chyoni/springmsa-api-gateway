@@ -23,14 +23,14 @@ spring:
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:
-            - Path=/user/**
+            - Path=/users/**
           filters:
             - name: CustomFilter
-            - name: LoggingFilter
-              args:
-                baseMessage: Hi, there.
-                preLogger: true
-                postLogger: true
-
+#            - name: LoggingFilter
+#              args:
+#                baseMessage: Hi, there.
+#                preLogger: true
+#                postLogger: true
+#
 #            - AddRequestHeader=user-service-request, user-service-request-header
 #            - AddResponseHeader=user-service-response, user-service-response-header
