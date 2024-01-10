@@ -23,6 +23,13 @@ spring:
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:
+            - Path=/login
+            - Method=POST
+          filters:
+            - RemoveRequestHeader=Cookie
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
             - Path=/users/**
           filters:
             - name: CustomFilter
@@ -30,6 +37,12 @@ spring:
           uri: lb://CATALOG-SERVICE
           predicates:
             - Path=/catalogs/**
+          filters:
+            - name: CustomFilter
+        - id: order-service
+          uri: lb://ORDER-SERVICE
+          predicates:
+            - Path=/orders/**
           filters:
             - name: CustomFilter
 #            - name: LoggingFilter
